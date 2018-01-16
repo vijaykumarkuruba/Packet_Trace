@@ -1,0 +1,29 @@
+# Makefile for Source File (Packet_trace.c)
+
+
+CC = g++
+CFLAGS += -fprofile-arcs -ftest-coverage 
+OBJECTS= Packet_trace.c
+
+TARGET1 = packettrace
+TARGET2 = packet_inst
+
+all: $(TARGET1)  
+inst:$(TARGET2) 
+
+$(TARGET1): $(OBJECTS)
+	$(CC)   $(OBJECTS)   -o $(TARGET1) 
+
+$(TARGET2): $(OBJECTS)
+	$(CC)   $(OBJECTS) $(CFLAGS)  -o $(TARGET2) 
+
+
+%.o : %.cpp %c
+	$(CC) $(CFLAGS) $(CXXFLAGS) -c $<
+
+clean:
+	rm -f $(TARGET) $(OBJECTS) *.info *.gc*
+                    
+.PHONY: all clean
+
+
