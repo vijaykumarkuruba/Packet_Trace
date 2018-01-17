@@ -22,6 +22,5 @@ return FALSE;
     else
       printf(" ");
   }
-printf("%d",IPAddress[i]);
 return TRUE;
 }
