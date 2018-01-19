@@ -2,8 +2,6 @@
 #include "struct.h"
 #include <gtest/gtest.h>
 
-//traceFile= fopen("sample-A.dmp","rb");
-
 TEST(Test, createIP) { 
     ASSERT_EQ(TRUE, createIP(255));
     ASSERT_EQ(FALSE,createIP(-2));
