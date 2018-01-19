@@ -10,7 +10,7 @@ LD_FLAGS += -L /usr/local/lib -l $(GOOGLE_TEST_LIB) -l pthread
 CFLAG  = -D PACKET
 
 
-OBJECT1 = tests.cpp Packet_trace.c
+OBJECT1 = tests.cpp Packet_trace.c createIP.c next_packet.c printConnection.c dePopulateTable.c transportPacketDumping.c
 
 TARGET1 = packet
 

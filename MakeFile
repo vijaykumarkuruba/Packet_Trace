@@ -3,7 +3,7 @@
 
 CC = g++
 CFLAGS += -fprofile-arcs -ftest-coverage 
-OBJECTS= Packet_trace.c
+OBJECTS= Packet_trace.c createIP.c next_packet.c printConnection.c dePopulateTable.c transportPacketDumping.c
 
 TARGET1 = packettrace
 TARGET2 = packet_inst

@@ -1,7 +1,5 @@
-// Emilio Lopez
-// eil11
+
 // Packet_trace.c
-// Date Created: 3/10/2017
 // Code for the Packet_trace
 
 // This program relies on a single, static hash table for parts -s and
@@ -22,11 +20,8 @@
 
 #include "struct.h"
 
-#include "createIP.c"
-#include "printConnection.c"
-#include "next_packet.c"
-#include "transportPacketDumping.c"
-#include "dePopulateTable.c"
+
+#pragma GCC diagnostic ignored "-Wwrite-strings"
 
 #define ALLOWED_OPTIONS 2
 #define TRUE 1
@@ -83,104 +78,170 @@ int transportPacketDumping();
 int printConnectionSummaries();
 int calculateRoundTripTimes();
 int safeFRead(void *ptr, size_t size, size_t nobj, FILE *stream);
+int case_ip,function_ip;
+char* function_ip1;
 
 
 
 #ifndef PACKET
-int main(int argc, char *argv[])
+int main(int argc,char *argv[])
 {
-  int optionCount = 0;
-  int option;
-  short rflag, pflag, sflag, tflag;
-  rflag = FALSE;
-  pflag = FALSE;
-  sflag = FALSE;
-  tflag = FALSE;
+	
+        for(int i=1;i<argc;i++)
+	    {
+		
+		if (i==1)
+		{
+			case_ip=atoi(argv[i]);
+		}
+		else
+		{
+			if (case_ip!=1)
+				function_ip=atoi(argv[i]);
+			else
+				function_ip1=argv[i];
+		}
+	}
+	if (case_ip!=1)
+		printf("%d\t%d\n",case_ip,function_ip);
+	else
+		printf("%d\t%s\n",case_ip,function_ip1);
 
-  while ((option = getopt(argc, argv, "r:pst ")) != -1)
-  {
-    switch (option)
-    {
-      case 'r':
-        traceFilePath = optarg;
+     int k=1;
+    
+     int optionCount = 0;
+     int option;
+     short rflag, pflag, sflag, tflag;
+     rflag = FALSE;
+     pflag = FALSE;
+     sflag = FALSE;
+     tflag = FALSE;
 
-        if (traceFilePath == NULL)
-        {
-            printf("%s", "Missing file argument.\n");
-            exit(EXIT_FAILURE);
-        }
-        else
-        {
-          rflag = TRUE;
-          optionCount++;
-          break;
-        }
+    switch(case_ip)
+      {
+        case 5:
+	           int ip;
+	           createIP(function_ip);
+               printf("\n");
+               break;
 
-      case 'p':
-        pflag = TRUE;
-        optionCount++;
-        break;
+		case 2 :{
+		       struct packetInfo pkts;
+		       memset(&pkts,125,sizeof(struct packetInfo));
+		       next_packet(&pkts);
+		       printf("\n");
+		       break;
+			}
+		case 3 :{
+		      struct packetInfo pkts;
+		      memset(&pkts,25,sizeof(struct packetInfo));
+		      next_usable_packet(&pkts);
+		      break;
+		      }
+		case 4:{
+		     double start_ts=123.255, current_ts=0;
+		     unsigned char protocol=127;
+		     struct connectionNode connection;
+		     memset(&connection,25,sizeof(struct connectionNode));
+		     printRTT(&connection);
+		     printf("\n");
+		     break;
+		     }
+			 
+         case 6 :
+		     k=2;
+             break;
+         default :
+             printf("\nPlease Enter the correct option... \n");
+             break;
+         case 1 :
+		
+			  while ((option = getopt(argc, argv, "r:pst ")) != -1)
+			  {
+		        
+				switch (option)
+				{
+				  case 'r':
+					traceFilePath = optarg;
 
-      case 's':
-        sflag = TRUE;
-        optionCount++;
-        break;
+					if (traceFilePath == NULL)
+					{
+						printf("%s", "Missing file argument.\n");
+						exit(EXIT_FAILURE);
+					}
+					else
+					{
+					  rflag = TRUE;
+					  optionCount++;
+					  break;
+					}
 
-      case 't':
-        tflag = TRUE;
-        optionCount++;
-        break;
+				  case 'p':
+					pflag = TRUE;
+					optionCount++;
+					break;
 
-      case ' ':
-        perror("No mode option input, exiting");
-        break;
+				  case 's':
+					sflag = TRUE;
+					optionCount++;
+					break;
 
-      default:
-        perror("Invalid command line argument");
-        exit(EXIT_FAILURE);
-    }
-  }
+				  case 't':
+					tflag = TRUE;
+					optionCount++;
+					break;
 
-  if (optionCount > ALLOWED_OPTIONS)
-  {
-    perror("Only 1 command option is allowed");
-    exit(EXIT_FAILURE);
-  }
+				  case ' ':
+					perror("No mode option input, exiting");
+					break;
 
-  if (optionCount < ALLOWED_OPTIONS)
-  {
-    perror("Insufficient number of mode options");
-    exit(EXIT_FAILURE);
-  }
+				  default:
+					perror("Invalid command line argument");
+					exit(EXIT_FAILURE);
+				}
+			  }
 
-  /* Attempts to open the given by the -r command */
- //printf("before if \n");
- //printf("rflag : %d \n ",rflag);
-  if (rflag)
-  { //printf("after if , tf %s\n",traceFile );
-    if ((traceFile = fopen(traceFilePath, "rb")) == NULL)
-    { 
-      perror("File open failed");
-      exit(EXIT_FAILURE);
-    }
-  }
-  else
-  {
-    perror("No file argument. Exiting");
-    exit(EXIT_FAILURE);
-  }
+			  if (optionCount > ALLOWED_OPTIONS)
+			  {
+				perror("Only 1 command option is allowed");
+				exit(EXIT_FAILURE);
+			  }
 
-  if (pflag)
-    transportPacketDumping();
+			  if (optionCount < ALLOWED_OPTIONS)
+			  {
+				perror("Insufficient number of mode options");
+				exit(EXIT_FAILURE);
+			  }
 
-  if (sflag)
-    printConnectionSummaries();
+			  if (rflag)
+			  { 
+				if ((traceFile = fopen(traceFilePath, "rb")) == NULL)
+				{ 
+				  perror("File open failed");
+				  exit(EXIT_FAILURE);
+				}
+			  }
+			  else
+			  {
+				perror("No file argument. Exiting");
+				exit(EXIT_FAILURE);
+			  }
 
-  if (tflag)
-    calculateRoundTripTimes();
+			  if (pflag)
+				transportPacketDumping();
 
+			  if (sflag)
+				printConnectionSummaries();
+
+			  if (tflag)
+				calculateRoundTripTimes(); 
+                          break; 
+                     
+      }
+  
 
 return TRUE;
+
 }
 #endif
 
@@ -195,6 +256,7 @@ int safeFRead(void *ptr, size_t size, size_t nobj, FILE *stream)
 
   unsigned int readSuccess;
   
+  printf("\n Executed SafeRead  function \n");
   if ((readSuccess = fread(ptr, size, nobj, stream)) < 0)
   { 
     perror("Reading failed."); 
@@ -229,6 +291,7 @@ void *zmalloc(unsigned int size)
 
 int next_usable_packet_tcp(struct packetInfo *pkts)
 {
+  
   while (next_packet(pkts))
   {
     if (pkts->ethh == NULL)
