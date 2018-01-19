@@ -12,7 +12,6 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/ip.h>
-
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
 #define ALLOWED_OPTIONS 2
@@ -49,8 +48,7 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 
-
-printf(" printConnection function \n");
+printf("\nprintConnection function \n");
 int printConnection(struct connectionNode *connection)
 {
   if (connection != NULL)

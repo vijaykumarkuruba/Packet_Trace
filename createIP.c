@@ -4,7 +4,6 @@
 #include <string.h>
 #include <unistd.h>
 #include "struct.h"
-
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
 #define ALLOWED_OPTIONS 2
@@ -41,6 +40,10 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 // creation of IP
+
+printf("\n createIP function \n");
+
+
 
 int createIP(unsigned int ip)
 {
