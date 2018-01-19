@@ -1,5 +1,6 @@
 // depopulate table
 
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +47,7 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 
+printf("\n");
 printf(" depopulatetable function\n");
 int depopulateTable()
 {
