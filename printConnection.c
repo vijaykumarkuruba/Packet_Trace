@@ -2,7 +2,6 @@
 
 // Print connection
 
-
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,6 +49,8 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 
+
+printf(" printConnection function \n");
 int printConnection(struct connectionNode *connection)
 {
   if (connection != NULL)
@@ -76,7 +77,7 @@ int printConnection(struct connectionNode *connection)
     {
       printf("? ?\n");
       return TRUE;
-    }
+   }
   }
   return FALSE;
 }
