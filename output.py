@@ -2,7 +2,11 @@ import re
 import os
 f = open("input_function_testing.txt", "r")
 os.system('rm -f *.gc* packet_inst')
-os.system('ls')
+
+
+
+
+
 os.system('make -f MakeFile inst')
 for line in f:
 	a=line
