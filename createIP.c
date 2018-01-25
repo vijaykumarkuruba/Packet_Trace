@@ -39,9 +39,9 @@
 
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
-// creation of IP
-printf("\n createIP function \n");
 
+
+// creation of IP
 int createIP(unsigned int ip)
 {
   int i;

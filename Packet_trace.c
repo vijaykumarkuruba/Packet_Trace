@@ -6,7 +6,7 @@
 // -t. It has a large starting size of almost 50k, but it means that the load
 // favot for the hash table is small, keeping the time complexity of lookup
 // and insert at about O(1).
-// source code
+
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -57,8 +57,6 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 #define ARBITRARY_HASH 0x45D9F3B
-
-
 
 //static FILE *traceFile;
 static char *traceFilePath;
@@ -244,9 +242,6 @@ return TRUE;
 
 }
 #endif
-
-
-
 
 
 //static FILE *traceFile;

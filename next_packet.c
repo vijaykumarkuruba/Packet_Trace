@@ -49,7 +49,6 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 
-printf("\n next packet \n");
 unsigned short next_packet(struct packetInfo *pkts)
 {
     printf("\n Executed Next Packet function \n");
