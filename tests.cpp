@@ -5,7 +5,6 @@
 TEST(Test, createIP) { 
     ASSERT_EQ(TRUE, createIP(255));
     ASSERT_EQ(FALSE,createIP(-2));
-
 }
 
 
@@ -41,17 +40,20 @@ TEST(Test, next_packet) {
     ASSERT_EQ(TRUE,next_packet(&pkts));
 }
 
+
 TEST(Test, next_usable_packet) {
     struct packetInfo pkts;
     memset(&pkts,0,sizeof(struct packetInfo));
     ASSERT_EQ(TRUE,next_usable_packet(&pkts));
 }
 
+
 TEST(Test, next_usable_packet_tcp) {
     struct packetInfo pkts;
     memset(&pkts,0,sizeof(struct packetInfo));
     ASSERT_EQ(TRUE,next_usable_packet_tcp(&pkts));
 }
+
 
 TEST(Test, populateConnectionTable) {
     ASSERT_EQ(TRUE,populateConnectionTable());

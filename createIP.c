@@ -1,3 +1,5 @@
+// Create IP 
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,8 +42,6 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 
-
-// creation of IP
 int createIP(unsigned int ip)
 {
   int i;
