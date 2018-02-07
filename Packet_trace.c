@@ -17,9 +17,7 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/ip.h>
-
 #include "struct.h"
-
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
@@ -78,8 +76,6 @@ int calculateRoundTripTimes();
 int safeFRead(void *ptr, size_t size, size_t nobj, FILE *stream);
 int case_ip,function_ip;
 char* function_ip1;
-
-
 
 #ifndef PACKET
 int main(int argc,char *argv[])
@@ -242,6 +238,8 @@ return TRUE;
 
 }
 #endif
+
+
 
 
 //static FILE *traceFile;

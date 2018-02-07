@@ -1,5 +1,3 @@
-
-
 //next packet
 
 #include <fcntl.h>
@@ -48,6 +46,8 @@
 
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
+
+
 
 unsigned short next_packet(struct packetInfo *pkts)
 {
@@ -130,7 +130,7 @@ unsigned short next_packet(struct packetInfo *pkts)
 }
 
 
-
+//next_usable_packet function
 
 
 int next_usable_packet(struct packetInfo *pkts)
