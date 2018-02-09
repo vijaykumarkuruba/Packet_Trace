@@ -47,6 +47,7 @@
 #define ARBITRARY_SHIFT 16
 
 //printf("\nprintConnection function \n");
+
 int printConnection(struct connectionNode *connection)
 {
   if (connection != NULL)

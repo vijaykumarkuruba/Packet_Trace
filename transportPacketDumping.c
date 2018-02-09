@@ -48,7 +48,8 @@
 #define ARBITRARY_SHIFT 16
 
 
-printf("\n transportPacketDumping function \n");
+//printf("\n transportPacketDumping function \n");
+
 int transportPacketDumping()
 {
   struct packetInfo packet;
