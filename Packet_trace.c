@@ -1,6 +1,4 @@
 
-
-
 // Packet_trace.c
 // Code for the Packet_trace
 // This program relies on a single, static hash table for parts -s and
@@ -56,6 +54,7 @@
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 #define ARBITRARY_HASH 0x45D9F3B
+
 
 //static FILE *traceFile;
 static char *traceFilePath;
