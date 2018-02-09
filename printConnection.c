@@ -48,6 +48,8 @@
 
 //printf("\nprintConnection function \n");
 
+
+
 int printConnection(struct connectionNode *connection)
 {
   if (connection != NULL)
