@@ -101,7 +101,7 @@ int main(int argc,char *argv[])
 	else
 		printf("%d\t%s\n",case_ip,function_ip1);
 
-     int k=1;
+   //  int k=1;
     
      int optionCount = 0;
      int option;
@@ -142,10 +142,10 @@ int main(int argc,char *argv[])
 		     break;
 		     }
 			 
-         case 6 :
+       /* case 6 :
 		     k=2;
              break;
-         default :
+        */ default :
              printf("\nPlease Enter the correct option... \n");
              break;
          case 1 :

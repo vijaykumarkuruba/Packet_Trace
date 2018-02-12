@@ -1,5 +1,6 @@
 // depopulate table
 
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +43,6 @@
 #define DECIMAL_TCP 6
 #define DECIMAL_UDP 17
 #define CONNECTION_START_TS 0
-
 #define TABLE_SIZE 47717
 #define ARBITRARY_SHIFT 16
 

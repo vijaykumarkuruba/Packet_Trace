@@ -12,7 +12,6 @@
 #include <netinet/ip.h>
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
-
 #define ALLOWED_OPTIONS 2
 #define TRUE 1
 #define FALSE 0
